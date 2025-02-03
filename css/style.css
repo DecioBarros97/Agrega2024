@@ -37,6 +37,11 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 
@@ -65,6 +70,17 @@ body {
 
 
 /*HEADER*/
+main {
+  min-height: 100%;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+}
 
 .main_header {
   background: var();
@@ -203,9 +219,9 @@ body {
 }
 
 .topoPag .centraliza {
-  width: 98%;
+  width: 95%;
   height: auto;
-  top: 5%;
+  top: 8%;
   position: absolute;
   margin: 0;
   text-align: center;
@@ -244,11 +260,13 @@ body {
 }
 
 video {
-
+  
   inset: 0;
   min-width: 100%;
   z-index: -1;
   filter: opacity(50%);
+  padding-bottom: 56.25%;
+  overflow: hidden;
 }
 
 /*cardapio*/
@@ -293,13 +311,6 @@ video {
   opacity: 0.2;
 }
 
-
-.card a {
-
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.2s
-}
 
 .card .color-overlay {
   background: rgba(64, 84, 94, 0.5);
@@ -477,154 +488,114 @@ h3:after {
 
 /*Galeria*/
 .section-galeria {
-  background-color: var(--second-bg-color);
+  background-color: #1d2129;
 }
 
-.section-galeria .content {
-  float: left;
-  padding: 0.5em 0 0em 0;
+
+.foto {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  background: #1d2129;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+.foto img {
+  width: 550px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 30px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.galeria {
-  width: 100%;
-  float: left;
-  position: relative;
-  overflow: hidden;
+.foto img:hover{
+  transform: scale(1.1);
+}
+.descricao {
+  flex: 1;
 }
 
-.galeria .foto .mascara {
-  background: rgba(0, 0, 0, 0);
-  transition: 0.5s;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
+  .foto h3 {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+    color: #fff; /* Alterado para branco, para destacar sobre o fundo escuro */
+  }
+  
+  .foto p {
+    font-size: 1.2rem;
+    color: #ccc; /* Alterado para um tom mais suave */
+  }
+  .invertido img {
+    margin-right: 0;
+    margin-left: 30px;
 }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .foto {
+      max-width: 80%; /* Em telas menores, faz com que as imagens ocupem toda a largura */
+    }
+    .foto .descricao {
+      width: 100%; /* Em telas pequenas, a descrição ocupa toda a largura */
+    }
+  }
+  
 
-.galeria .foto .image-link {
-  display: block;
-  position: absolute;
-  left: 35%;
-  bottom: 25px;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 1.8em;
-  background: transparent;
-  color: #ffffff;
-  text-decoration: none;
-  transition: all .3s ease-in-out;
-  opacity: 0;
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-.galeria .foto {
-  width: 100%;
-  float: left;
-  display: block;
-  margin-bottom: 5%;
-  border: 2px #000 solid;
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.foto:hover .image-link {
-  bottom: 20%;
-  transition: all .3s ease-in-out;
-  opacity: 1;
-}
-
-.foto:hover .mascara {
-  background: rgba(3, 3, 3, 0.71);
-}
-
-/*Termina Galeria*/
+/*Termina Galeria ******* */
 
 /*Perguntas Frequentes*/
 .section-faq {
   background-color: #efefef;
+  padding: 40px 0;
 }
 
 .section-faq .content {
-  float: left;
-  padding: 0.5em 0 0em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* Garante que se ajuste em telas pequenas */
 }
 
 .coluna-left {
+  width: 50%;
+  max-width: 450px;
+}
+
+.coluna-left img {
   width: 100%;
-  float: left;
-  margin-bottom: 30px;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+.coluna-left img:hover {
+  transform: scale(1.1); /* Aumenta a imagem em 10% quando o mouse passa por cima */
 }
 
 .coluna-right {
-  width: 100%;
-  float: left;
-  margin-bottom: 30px;
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #1d2129;
+  font-size: 1.2rem;
 }
 
-.faq-img {
-  width: 100%;
-  margin: auto;
-  border-radius: 8px;
-  overflow: hidden;
-}
+@media (max-width: 768px) {
+  .section-faq .content {
+      flex-direction: column;
+      text-align: center;
+  }
 
-#toggle-item {
-  width: 100%;
-  float: left;
-  list-style: none;
-  font-size: 1em;
-  margin: 0;
-  padding: 0;
-  background: #ffffff;
-  padding: 22px;
-  border-radius: 8px;
-}
+  .coluna-left,
+  .coluna-right {
+      width: 100%;
+  }
 
-#toggle-item li {
-  width: 100%;
-  float: left;
-  margin: 0.5em 0.5em;
-  padding-bottom: 0;
-  border-bottom: 1px solid #fbfbfb;
-  position: relative;
-}
-
-#toggle-item h4 {
-  width: 100%;
-  float: left;
-  margin: 0;
-  font-size: 1.2em;
-  color: #5b5656;
-  border-bottom: 1px #e9e9e9 solid;
-  padding-bottom: 7px;
-}
-
-#toggle-item span {
-  position: absolute;
-  right: 5px;
-  top: 0;
-  color: #9f9f9f;
-  font-size: 1em;
-  cursor: pointer;
-}
-
-.icon-minus-square {
-  color: #2b9325;
-}
-
-#toggle-item p {
-  font-size: 0.9em;
-  color: #9f9f9f;
-  margin: 0.8em 0;
-  padding-right: 1em;
-  display: none;
-  float: left;
-  width: 100%;
+  .coluna-right {
+      padding: 0;
+  }
 }
 
 
